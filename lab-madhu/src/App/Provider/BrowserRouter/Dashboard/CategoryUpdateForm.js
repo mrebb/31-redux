@@ -31,24 +31,12 @@ class CategoryUpdateForm extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} onChange={this.onChange}>
-        <input name="title" placeholder="title" defaultValue={this.state.title} />
-        <textarea
-          name="content"
-          placeholder="content"
-          defaultValue={this.state.content}
+        <input name="categoryName" placeholder="category name" defaultValue={this.state.categoryName} />
+        <input
+          name="budget"
+          placeholder="budget"
+          defaultValue={this.state.budget}
         />
-        <label>
-          <span>editing</span>
-          <input name="editing" type="checkbox" defaultChecked={this.state.editing} />
-        </label>
-        <label>
-          <span>completed</span>
-          <input
-            name="completed"
-            type="checkbox"
-            defaultChecked={this.state.completed}
-          />
-        </label>
         <button>Update Category</button>
         <button type="button" onClick={this.onCancel}>
           cancel

@@ -8,25 +8,21 @@ class CategoryCreateForm extends Component {
   constructor(props) {
     super(props);
     this.defaultState = {
-      editing: false,
-      completed: false,
-      content: "",
-      title: ""
+      budget: "",
+      categoryName: "",
+      timestamp:'' 
     };
     this.state = {...this.defaultState};
   }
   
   onSubmit = event => {
     event.preventDefault();
-    this.props.categoryCreate({ ...this.state, id: uuid() });
+    this.props.categoryCreate({ ...this.state, id: uuid(), timestamp:new Date()});
     this.setState({ ...this.defaultState });
   };
 
   onChange = event => {
-    const val =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
+    const val = event.target.value;
 
     const changedBit = {
       [event.target.name]: val
@@ -37,21 +33,13 @@ class CategoryCreateForm extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} onChange={this.onChange}>
-        <input name="title" placeholder="title" value={this.state.title} />
-        <textarea
-          name="content"
-          placeholder="content"
-          value={this.state.content}
+        <input name="categoryName" placeholder="category name" value={this.state.categoryName} />
+        <input
+          name="budget"
+          placeholder="budget"
+          value={this.state.budget}
         />
-        <label>
-          <span>editing</span>
-          <input name="editing" type="checkbox" checked={this.state.editing} />
-        </label>
-        <label>
-          <span>completed</span>
-          <input name="completed" type="checkbox" checked={this.state.completed} />
-        </label>
-        <button>Create Category</button>
+        <button>{this.props.buttonText}</button>
       </form>
     );
   }

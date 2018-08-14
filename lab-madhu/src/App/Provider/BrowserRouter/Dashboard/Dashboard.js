@@ -9,7 +9,7 @@ export default class App extends Component {
       
         <Fragment>
           <h1>Categories</h1>
-          <CategoryCreateForm />
+          <CategoryCreateForm buttonText={"create category"} />
           <CategoryList />
         </Fragment>
      

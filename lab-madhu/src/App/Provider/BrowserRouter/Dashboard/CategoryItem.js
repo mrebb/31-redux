@@ -27,9 +27,9 @@ class CategoryItem extends Component {
     if (this.state.mode === 'default') {
       return (
         <li onDoubleClick={this.editMode}>
-          <h2>{this.props.category.title}</h2>
+          <h2>{this.props.category.categoryName}</h2>
+          <p>{this.props.category.budget}</p>
           <button onClick={() => this.props.onRemove(this.props.category)}>x</button>
-          <p>{this.props.category.content}</p>
         </li>
       );
     } else {
