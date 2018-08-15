@@ -7,7 +7,7 @@ describe('actions', () => {
       categoryName:'grocery',
       budget:'200',
     };
-    const actualAction = actions.categoryCreate({
+    const actualAction = actions.createCategory({
       categoryName:'grocery',
       budget:'200',
     });
@@ -25,7 +25,7 @@ describe('actions', () => {
     };
 
 
-    const actualAction = actions.categoryUpdate({
+    const actualAction = actions.updateCategory({
       categoryName:'grocery',
       budget:'200',
       id:1234
@@ -44,7 +44,7 @@ describe('actions', () => {
       budget:'200',
       id:1234
     };
-    const actualAction = actions.categoryDelete({
+    const actualAction = actions.deleteCategory({
       categoryName:'grocery',
       budget:'200',
       id:1234

@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4'
 
-export const categoryCreate = category => {
+export const createCategory = category => {
   category.id = uuid()
   return {
     type: 'CATEGORY_CREATE',
@@ -8,12 +8,12 @@ export const categoryCreate = category => {
   }
 }
 
-export const categoryUpdate = category => ({
+export const updateCategory = category => ({
   type: 'CATEGORY_UPDATE',
   payload: category,
 })
 
-export const categoryDelete = category => ({
+export const deleteCategory = category => ({
   type: 'CATEGORY_DESTROY',
   payload: category,
 })

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CategoryUpdateForm from './CategoryUpdateForm';
 import { connect } from 'react-redux';
-import { categoryDelete, categoryUpdate } from '../../../../action/category-action';
+import { deleteCategory, updateCategory } from '../../../../action/category-action';
 
 class CategoryItem extends Component {
 
@@ -54,8 +54,8 @@ class CategoryItem extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onRemove: category => dispatch(categoryDelete(category)),
-  onUpdate: category => dispatch(categoryUpdate(category)),
+  onRemove: category => dispatch(deleteCategory(category)),
+  onUpdate: category => dispatch(updateCategory(category)),
 })
 
 export default connect(null, mapDispatchToProps)(CategoryItem);

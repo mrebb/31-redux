@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import uuid from "uuid/v4";
 import { connect } from 'react-redux';
-import { categoryCreate } from '../../../../action/category-action';
+import { createCategory } from '../../../../action/category-action';
 
 class CategoryCreateForm extends Component {
   
@@ -47,7 +47,7 @@ class CategoryCreateForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onComplete: category => dispatch(categoryCreate(category))
+  onComplete: category => dispatch(createCategory(category))
 });
 
 export default connect(null, mapDispatchToProps)(CategoryCreateForm);

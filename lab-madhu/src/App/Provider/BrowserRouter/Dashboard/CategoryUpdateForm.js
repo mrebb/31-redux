@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { categoryUpdate } from "../../../../action/category-action";
+import { updateCategory } from "../../../../action/category-action";
 
 class CategoryUpdateForm extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class CategoryUpdateForm extends Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.onDone();
-    this.props.categoryUpdate(this.state);
+    this.props.updateCategory(this.state);
   };
 
   onCancel = () => this.props.onCancel();
@@ -47,7 +47,7 @@ class CategoryUpdateForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  categoryUpdate: category => dispatch(categoryUpdate(category))
+  updateCategory: category => dispatch(updateCategory(category))
 });
 export default connect(
   null,
