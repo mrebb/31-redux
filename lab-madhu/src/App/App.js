@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { BrowserRouter, Route} from "react-router-dom";
 import { Provider } from 'react-redux';
 import Dashboard from './Provider/BrowserRouter/Dashboard/Dashboard';
 import createAppStore from '../lib/store';
@@ -12,10 +13,13 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Fragment>
-          <Dashboard />
-        </Fragment>
+      <BrowserRouter>
+      <Fragment>
+      <Route exact path="/" component={Dashboard} />
+      </Fragment>
+        </BrowserRouter>
       </Provider>
+      
     );
   }
 }

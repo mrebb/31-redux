@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import uuid from "uuid/v4";
 import { connect } from 'react-redux';
-import { categoryCreate } from '../../../../action/category-action';
+import { createCategory } from '../../../../action/category-action';
 
 class CategoryCreateForm extends Component {
   
@@ -12,12 +12,13 @@ class CategoryCreateForm extends Component {
       categoryName: "",
       timestamp:'' 
     };
-    this.state = {...this.defaultState};
+    const initialState=this.props.category || this.defaultState;
+    this.state = {...initialState};
   }
   
   onSubmit = event => {
     event.preventDefault();
-    this.props.categoryCreate({ ...this.state, id: uuid(), timestamp:new Date()});
+    this.props.onComplete({ ...this.state, id: uuid(),});
     this.setState({ ...this.defaultState });
   };
 
@@ -46,7 +47,7 @@ class CategoryCreateForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  categoryCreate: category => dispatch(categoryCreate(category))
+  onComplete: category => dispatch(createCategory(category))
 });
 
 export default connect(null, mapDispatchToProps)(CategoryCreateForm);

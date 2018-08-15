@@ -7,7 +7,7 @@ describe('actions', () => {
       categoryName:'grocery',
       budget:'200',
     };
-    const actualAction = actions.categoryCreate({
+    const actualAction = actions.createCategory({
       categoryName:'grocery',
       budget:'200',
     });
@@ -25,7 +25,7 @@ describe('actions', () => {
     };
 
 
-    const actualAction = actions.categoryUpdate({
+    const actualAction = actions.updateCategory({
       categoryName:'grocery',
       budget:'200',
       id:1234
@@ -37,14 +37,14 @@ describe('actions', () => {
     expect(actualAction.payload.budget).toBe(category.budget);
     expect(actualAction.payload.id).toBe(category.id);
   })
-  it('should create an action to delete a category', () => {
+  it('should create an action to destroy a category', () => {
 
     const category = {
       categoryName:'grocery',
       budget:'200',
       id:1234
     };
-    const actualAction = actions.categoryDelete({
+    const actualAction = actions.deleteCategory({
       categoryName:'grocery',
       budget:'200',
       id:1234

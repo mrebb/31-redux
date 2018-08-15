@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import CategoryCreateForm from './CategoryCreateForm';
+import CategoryCreateForm from './CategoryForm';
 import CategoryList from './CategoryList';
 
 export default class App extends Component {
