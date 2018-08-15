@@ -12,12 +12,13 @@ class CategoryCreateForm extends Component {
       categoryName: "",
       timestamp:'' 
     };
-    this.state = {...this.defaultState};
+    const initialState=this.props.category || this.defaultState;
+    this.state = {...initialState};
   }
   
   onSubmit = event => {
     event.preventDefault();
-    this.props.categoryCreate({ ...this.state, id: uuid(), timestamp:new Date()});
+    this.props.onComplete({ ...this.state, id: uuid(),});
     this.setState({ ...this.defaultState });
   };
 
@@ -46,7 +47,7 @@ class CategoryCreateForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  categoryCreate: category => dispatch(categoryCreate(category))
+  onComplete: category => dispatch(categoryCreate(category))
 });
 
 export default connect(null, mapDispatchToProps)(CategoryCreateForm);

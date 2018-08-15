@@ -8,7 +8,8 @@ class CategoryItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: 'default'
+      mode: 'default',
+      timestamp : this.props.category.timestamp
     }
     this.editMode = this.editMode.bind(this);
     this.defaultMode = this.defaultMode.bind(this);
@@ -29,16 +30,18 @@ class CategoryItem extends Component {
         <li onDoubleClick={this.editMode}>
           <h2>{this.props.category.categoryName}</h2>
           <p>{this.props.category.budget}</p>
+          <p>{this.state.timestamp}</p>
           <button onClick={() => this.props.onRemove(this.props.category)}>x</button>
         </li>
       );
     } else {
       return (
         <CategoryUpdateForm 
-          category={this.props.category} 
-          onCancel={this.defaultMode} 
-          onDone={this.defaultMode}
-        />
+        category={this.props.category} 
+        onCancel={this.defaultMode} 
+        onDone={this.defaultMode}
+      />
+        
       );
     }
     }

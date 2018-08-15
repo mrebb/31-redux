@@ -37,7 +37,7 @@ describe('actions', () => {
     expect(actualAction.payload.budget).toBe(category.budget);
     expect(actualAction.payload.id).toBe(category.id);
   })
-  it('should create an action to delete a category', () => {
+  it('should create an action to destroy a category', () => {
 
     const category = {
       categoryName:'grocery',

@@ -17,14 +17,29 @@ describe('Category reducer', () => {
     expect(newState.length).toBe(1);
   });
   it('should update a category', () => {
-    const updatedState = reducer([{categoryName:'Games',
-    budget: '$100',id:123456},{categoryName:'cleaning',
-    budget: '$300',id:789}], actions.categoryUpdate({id:789}));
-    expect(updatedState[0].budget).toBe('$100');
+    const category = {categoryName:'games',budget:10};
+    const addAction = actions.categoryCreate(category)
+    const state = reducer([],addAction);
+   
+    expect(state.length).toBe(1)
+    state[0].budget = 15;
+    const updateAction = actions.categoryUpdate(state[0])
+    const updatedState = reducer(state,updateAction)
+    expect(updatedState[0].budget).toBe(15)
+
+
   });
   it('should delete a category', () => {
-    const State = reducer([{categoryName:'Games',
-    budget: '$100',id:123456}], actions.categoryDelete({}));
-    expect(State[0].budget).toBe('$100');
+    const category1 = {categoryName:'games',budget:10};
+    const addAction1 = actions.categoryCreate(category1)
+    const state1 = reducer([],addAction1);
+    const category2 = {categoryName:'movies',budget:15};
+    const addAction2 = actions.categoryCreate(category2)
+    const state2 = reducer(state1,addAction2);
+    expect(state2.length).toBe(2)
+    
+    const deleteAction = actions.categoryDelete(state2[0])
+    const updatedState = reducer(state2,deleteAction)
+    expect(updatedState.length).toBe(1)
   });
 });
